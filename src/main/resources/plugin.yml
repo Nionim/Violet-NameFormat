@@ -15,11 +15,17 @@ permissions:
     children:
       vio.color.user:
         description: what?
+      vio.nick.user:
+        description: what?
       vio.color:
         description: what?
       vio.nick:
         description: what?
-      vio.nick.user:
+      vio.help:
+        description: what?
+      vio.reset:
+        description: what?
+      vio.reload:
         description: what?
   vio.color.user:
     children:
@@ -35,5 +41,7 @@ permissions:
     description: Set nickname
   vio.help:
     description: Get help
+  vio.reset:
+    description: Reset nick deco
   vio.reload:
     description: Reload config

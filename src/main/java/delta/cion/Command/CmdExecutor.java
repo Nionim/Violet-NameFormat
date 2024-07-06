@@ -1,6 +1,6 @@
 package delta.cion.Command;
 
-import delta.cion.Command.commands.VioHelp;
+import delta.cion.Command.commands.*;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -17,6 +17,10 @@ public class CmdExecutor implements CommandExecutor, TabCompleter {
 
     public CmdExecutor() {
         c.add(new VioHelp());
+        c.add(new VioReset());
+        c.add(new VioNick());
+        c.add(new VioReload());
+        c.add(new VioColor());
     }
 
     @Override
