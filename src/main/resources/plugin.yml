@@ -1,0 +1,39 @@
+name: Violet-NameFormat
+version: '${project.version}'
+main: delta.cion.Violet_NameFormat
+api-version: '1.20'
+authors:
+  - Carde2
+description: "For: Project~VIolette"
+website: https://discord.gg/MEBkvJbe4P
+commands:
+  vionm:
+    description: Main command
+permissions:
+  vio.name.format.*:
+    description: All perms
+    children:
+      vio.color.user:
+        description: what?
+      vio.color:
+        description: what?
+      vio.nick:
+        description: what?
+      vio.nick.user:
+        description: what?
+  vio.color.user:
+    children:
+      vio.color:
+        description: Set color name for other user
+  vio.nick.user:
+    children:
+      vio.nick:
+        description: Set nickname for other user
+  vio.color:
+    description: Set color name
+  vio.nick:
+    description: Set nickname
+  vio.help:
+    description: Get help
+  vio.reload:
+    description: Reload config
