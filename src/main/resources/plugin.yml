@@ -13,6 +13,8 @@ permissions:
   vio.name.format.*:
     description: All perms
     children:
+      vio.anvil:
+        descriprion: what?
       vio.color.user:
         description: what?
       vio.nick.user:
@@ -35,6 +37,8 @@ permissions:
     children:
       vio.nick:
         description: Set nickname for other user
+  vio.anvil:
+    descriprion: Color names for items in anvil
   vio.color:
     description: Set color name
   vio.nick:

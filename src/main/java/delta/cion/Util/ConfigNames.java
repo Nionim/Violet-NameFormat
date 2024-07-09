@@ -17,4 +17,15 @@ public class ConfigNames {
         }
     }
 
+    // Players:
+    //  playername:
+    //      format: "&4&l{name}"
+
+    public void addPlayer() {
+
+    }
+
+    public void removePlayer() {
+
+    }
 }

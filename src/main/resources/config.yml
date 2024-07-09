@@ -1,0 +1,11 @@
+Messages:
+  Unknown-Command: ""
+  Config-Reloaded: ""
+  Only-Player: ""
+  Args-Missing: ""
+
+Players:
+  Carde2:
+    format: "{#AA00AA}&l{name}"
+  taumel:
+    format: "{#000000}&l{name}"

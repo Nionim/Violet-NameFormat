@@ -24,19 +24,19 @@ public class Senders {
 
     public static void Log(int lvl, String msg){
         switch(lvl) {
-            case 52: cmdMsg("&4&n"+msg+" &8(&eDEBUG&8)");                                         break;
-            case 62: cmdMsg(cmdline+msg+cmdline);                                                 break;
-            case 0: cmdMsg("&f"+msg);                                                             break;
-            case 1: cmdMsg("&e"+msg);                                                             break;
-            case 2: cmdMsg("&c"+msg);                                                             break;
-            case 3: cmdMsg("&4"+msg);                                                             break;
+            case 52: cmdMsg("&4&n"+msg+" &8(&eDEBUG&8)");   break;
+            case 62: cmdMsg(cmdline+msg+cmdline);           break;
+            case 0: cmdMsg("&f"+msg);                       break;
+            case 1: cmdMsg("&e"+msg);                       break;
+            case 2: cmdMsg("&c"+msg);                       break;
+            case 3: cmdMsg("&4"+msg);                       break;
         }
     }
 
     public static void Msg(int lvl, CommandSender sender, String msg) {
         switch(lvl) {
-            case 0: senderMsg(sender, line+msg+line);                                        break;
-            case 1: senderMsg(sender, prefix+msg);                                           break;
+            case 0: senderMsg(sender, line+msg+line);   break;
+            case 1: senderMsg(sender, prefix+msg);      break;
         }
     }
 
@@ -48,10 +48,10 @@ public class Senders {
         // А почему нет? Удобно, не мешает, просто.
         try {
             switch (lvl) {
-                case 0: senderMsg(sender, prefix + MSG("Unknown-Command"));                                         break;
-                case 1: senderMsg(sender, prefix + MSG("Config-Reloaded"));                                         break;
-                case 4: senderMsg(sender, prefix + MSG("Only-Player"));                                             break;
-                case 5: senderMsg(sender, prefix + MSG("Args-Missing"));                                            break;
+                case 0: senderMsg(sender, prefix + MSG("Unknown-Command")); break;
+                case 1: senderMsg(sender, prefix + MSG("Config-Reloaded")); break;
+                case 2: senderMsg(sender, prefix + MSG("Only-Player"));     break;
+                case 3: senderMsg(sender, prefix + MSG("Args-Missing"));    break;
             }
         } catch (Exception e) {Senders.Msg(1, sender, "Senders.Messages -> Unknown \"int lvl\"! Contact with @nionim (In Discord)");}
     }
