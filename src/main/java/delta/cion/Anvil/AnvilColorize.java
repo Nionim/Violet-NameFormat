@@ -35,22 +35,18 @@ public class AnvilColorize implements Listener {
     }
 
     private String translateHexColorCodes(String textToTranslate) {
+
         Pattern hexPattern = Pattern.compile("#[a-fA-F0-9]{6}");
         Matcher matcher = hexPattern.matcher(textToTranslate);
         StringBuffer buffer = new StringBuffer();
 
-        while(matcher.find()) {
+        while (matcher.find()) {
             String hexColor = matcher.group();
-            StringBuilder replacement = new StringBuilder("§x");
-            char[] var7 = hexColor.substring(1).toCharArray();
-            int var8 = var7.length;
-
-            for(int var9 = 0; var9 < var8; ++var9) {
-                char c = var7[var9];
-                replacement.append('§').append(c);
-            }
-
-            matcher.appendReplacement(buffer, replacement.toString());
+            String replacement = hexColor
+                    .substring(1)
+                    .replaceAll(".", "§$0")
+                    .replaceFirst("^", "§x");
+            matcher.appendReplacement(buffer, replacement);
         }
 
         matcher.appendTail(buffer);
