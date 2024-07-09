@@ -52,6 +52,7 @@ public class Senders {
                 case 1: senderMsg(sender, prefix + MSG("Config-Reloaded")); break;
                 case 2: senderMsg(sender, prefix + MSG("Only-Player"));     break;
                 case 3: senderMsg(sender, prefix + MSG("Args-Missing"));    break;
+                case 4: senderMsg(sender, prefix + MSG("Help"));            break;
             }
         } catch (Exception e) {Senders.Msg(1, sender, "Senders.Messages -> Unknown \"int lvl\"! Contact with @nionim (In Discord)");}
     }

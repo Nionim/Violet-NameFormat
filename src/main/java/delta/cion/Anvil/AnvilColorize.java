@@ -1,7 +1,6 @@
 package delta.cion.Anvil;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import delta.cion.Util.ConfigNames;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -23,7 +22,7 @@ public class AnvilColorize implements Listener {
             if (meta.hasDisplayName()) {
                 String displayName = meta.getDisplayName();
                 displayName = ChatColor.translateAlternateColorCodes('&', displayName);
-                displayName = this.translateHexColorCodes(displayName);
+                displayName = ConfigNames.hexTranslate(displayName);
 
 
                 meta.setDisplayName(displayName);
@@ -33,25 +32,4 @@ public class AnvilColorize implements Listener {
         }
 
     }
-
-    private String translateHexColorCodes(String textToTranslate) {
-
-        Pattern hexPattern = Pattern.compile("#[a-fA-F0-9]{6}");
-        Matcher matcher = hexPattern.matcher(textToTranslate);
-        StringBuffer buffer = new StringBuffer();
-
-        while (matcher.find()) {
-            String hexColor = matcher.group();
-            String replacement = hexColor
-                    .substring(1)
-                    .replaceAll(".", "§$0")
-                    .replaceFirst("^", "§x");
-            matcher.appendReplacement(buffer, replacement);
-        }
-
-        matcher.appendTail(buffer);
-        return buffer.toString();
-    }
-
-
 }
