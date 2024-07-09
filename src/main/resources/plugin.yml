@@ -10,35 +10,16 @@ commands:
   vionf:
     description: Main command
 permissions:
-  vio.name.format.*:
-    description: All perms
-    children:
-      vio.anvil:
-        descriprion: what?
-      vio.color.user:
-        description: what?
-      vio.nick.user:
-        description: what?
-      vio.color:
-        description: what?
-      vio.nick:
-        description: what?
-      vio.help:
-        description: what?
-      vio.reset:
-        description: what?
-      vio.reload:
-        description: what?
   vio.color.user:
+    description: Set color name for other user
     children:
-      vio.color:
-        description: Set color name for other user
+      vio.color: true
   vio.nick.user:
+    description: Set nickname for other user
     children:
-      vio.nick:
-        description: Set nickname for other user
+      vio.nick: true
   vio.anvil:
-    descriprion: Color names for items in anvil
+    description: Color names for items in anvil
   vio.color:
     description: Set color name
   vio.nick:
@@ -49,3 +30,14 @@ permissions:
     description: Reset nick deco
   vio.reload:
     description: Reload config
+  vio.name.format.*:
+    description: All perms
+    children:
+      vio.anvil: true
+      vio.color.user: true
+      vio.nick.user: true
+      vio.color: true
+      vio.nick: true
+      vio.help: true
+      vio.reset: true
+      vio.reload: true
