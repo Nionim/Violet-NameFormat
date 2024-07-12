@@ -16,10 +16,7 @@ public final class Violet_NameFormat extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-        saveDefaultConfig();
-        Objects.requireNonNull(getCommand("vionf")).setExecutor(new CmdExecutor());
-        Objects.requireNonNull(getCommand("vionf")).setTabCompleter(new CmdExecutor());
-        Bukkit.getPluginManager().registerEvents(new AnvilColorize(), this);
+        CmdExecutor.Enablez();
     }
 
     @Override

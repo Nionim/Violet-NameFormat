@@ -35,6 +35,16 @@ public class ConfigNames {
         }
     }
 
+    public static void joinPlayer(Player player) {
+        conf = Violet_NameFormat.getInstance().getConfig();
+        section = conf.getConfigurationSection("Players");
+
+        if (section != null || section.contains(player.getName())) {
+
+            player.setDisplayName(section.getString(player.getName()));
+        }
+    }
+
     public static void checkPlayer(Player player, String color) {
         String playerz = player.getName();
         conf = Violet_NameFormat.getInstance().getConfig();

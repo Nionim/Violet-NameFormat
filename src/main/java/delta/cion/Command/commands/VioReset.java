@@ -1,13 +1,13 @@
 package delta.cion.Command.commands;
 
-import delta.cion.Command.CmdUtil;
+import delta.cion.Command.CmdExecutor;
 import delta.cion.Util.ConfigNames;
 import delta.cion.Util.Senders;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class VioReset implements CmdUtil {
+public class VioReset implements CmdExecutor.CmdUtil {
     @Override
     public String CmdName() {return "reset";}
 
