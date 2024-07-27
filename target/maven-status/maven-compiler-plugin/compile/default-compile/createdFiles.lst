@@ -8,5 +8,6 @@ delta\cion\Command\commands\VioHelp.class
 delta\cion\Command\CmdExecutor$CmdUtil.class
 delta\cion\Command\CmdExecutor.class
 delta\cion\Command\commands\VioColor.class
+delta\cion\Command\commands\VioSet.class
 delta\cion\Command\commands\VioNick.class
 delta\cion\Util\ConfigNames.class

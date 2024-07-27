@@ -64,8 +64,8 @@ public class ConfigNames {
             String hexColor = matcher.group();
             String replacement = hexColor
                     .substring(1) // Убираем #
-                    .replaceAll(".", "§$0") // Добавляем § перед каждой цифрой/буквой
-                    .replaceFirst("^", "§x"); // В начале строки добавляем §x
+                    .replaceAll(".", "§$0")
+                    .replaceFirst("^", "§x");
             matcher.appendReplacement(buffer, replacement);
         }
         matcher.appendTail(buffer);

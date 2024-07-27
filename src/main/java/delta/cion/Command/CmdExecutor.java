@@ -25,12 +25,14 @@ public class CmdExecutor implements CommandExecutor, TabCompleter {
         c.add(new VioReset());
         c.add(new VioReload());
         c.add(new VioColor());
+        c.add(new VioNick());
+        c.add(new VioSet());
     }
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String string, String[] args) {
         for (CmdUtil cmdUtil : c) {
-            if (args.length > 0 && args[0].equalsIgnoreCase(cmdUtil.CmdName()) && (sender.hasPermission("vio."+cmdUtil.CmdName()) || sender.hasPermission("vio.name.format.*"))) {
+            if (args.length > 0 && args[0].equalsIgnoreCase(cmdUtil.CmdName()) && (sender.hasPermission("vio."+cmdUtil.CmdName()))) {
                 String[] argscmd = Arrays.copyOfRange(args, 1, args.length);
                 cmdUtil.CmdUse(sender, argscmd);
                 return true;

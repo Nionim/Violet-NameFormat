@@ -30,9 +30,15 @@ permissions:
     description: Reset nick deco
   vio.reload:
     description: Reload config
+  vio.length.bypass:
+    description: Bypass chart limit
+  vio.magic-font:
+    description: Can use magic font? (&k)
   vio.name.format.*:
     description: All perms
     children:
+      vio.length.bypass: true
+      vio.magic-font: true
       vio.anvil: true
       vio.color.user: true
       vio.nick.user: true
