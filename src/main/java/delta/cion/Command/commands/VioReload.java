@@ -10,6 +10,9 @@ public class VioReload implements CmdExecutor.CmdUtil {
     public String CmdName() {return "reload";}
 
     @Override
+    public String CmdDescription() {return "Reload config";}
+
+    @Override
     public void CmdUse(CommandSender sender, String[] args) {
         Violet_NameFormat.getInstance().reloadConfig();
         Senders.Messages(1, sender);

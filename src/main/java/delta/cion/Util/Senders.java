@@ -4,57 +4,57 @@ import delta.cion.Violet_NameFormat;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 import java.util.Objects;
 
 public class Senders {
 
+    private static final Violet_NameFormat plugin = Violet_NameFormat.getInstance();
     static String prefix = "&5&lVioNick&8&l >>&r ";
     static String line = "\n&7&l———————————[&5&lVioNick&7&l]———————————\n";
     static String cmdline = line.replaceAll("—", "——");
 
-
-    // Ваще похуй на устаревание ChatColor, он слишком имбовый.
-    private static void senderMsg(CommandSender sender, String msg){
-        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
-    }
-    private static void cmdMsg(String msg) {
-        Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + msg));
+    private static void send(CommandSender sender, String msg){
+        if (sender != null) sender.sendMessage(ChatColor.translateAlternateColorCodes('&', msg));
+        else Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + msg));
     }
 
     public static void Log(int lvl, String msg){
         switch(lvl) {
-            case 52: cmdMsg("&4&n"+msg+" &8(&eDEBUG&8)");   break;
-            case 62: cmdMsg(cmdline+msg+cmdline);           break;
-            case 0: cmdMsg("&f"+msg);                       break;
-            case 1: cmdMsg("&e"+msg);                       break;
-            case 2: cmdMsg("&c"+msg);                       break;
-            case 3: cmdMsg("&4"+msg);                       break;
+            case 52 -> send(null, "&4&n"+msg+" &8(&eDEBUG&8)");
+            case 0 -> send(null, cmdline+msg+cmdline);
+            case 1 -> send(null, "&f"+msg);
+            case 2 -> send(null, "&e"+msg);
+            case 3 -> send(null, "&c"+msg);
         }
     }
 
     public static void Msg(int lvl, CommandSender sender, String msg) {
         switch(lvl) {
-            case 0: senderMsg(sender, line+msg+line);   break;
-            case 1: senderMsg(sender, prefix+msg);      break;
+            case 0 -> send(sender, msg);
+            case 1 -> send(sender, line+msg+line);
+            case 2 -> send(sender, prefix+msg);
         }
     }
 
-    public static String MSG(String text) {
-        return Objects.requireNonNull(Violet_NameFormat.getInstance().getConfig().getConfigurationSection("Messages")).getString(text);
+    public static String getMsg(String text) {
+        return Objects.requireNonNull(plugin.getConfig().getString("Messages."+text));
     }
 
     public static void Messages(int lvl, CommandSender sender) {
-        // А почему нет? Удобно, не мешает, просто.
         try {
             switch (lvl) {
-                case 0: senderMsg(sender, prefix + MSG("Unknown-Command")); break;
-                case 1: senderMsg(sender, prefix + MSG("Config-Reloaded")); break;
-                case 2: senderMsg(sender, prefix + MSG("Only-Player"));     break;
-                case 3: senderMsg(sender, prefix + MSG("Args-Missing"));    break;
-                case 4: senderMsg(sender, prefix + MSG("Help"));            break;
-                case 5: senderMsg(sender, prefix + MSG("Max-Limit"));       break;
-                case 6: senderMsg(sender, prefix + MSG("No-Player"));       break;
+                case 0 -> send(sender, prefix + getMsg("Unknown-Command"));
+                case 1 -> send(sender, prefix + getMsg("Config-Reloaded"));
+                case 2 -> send(sender, prefix + getMsg("Only-Player"));
+                case 3 -> send(sender, prefix + getMsg("Args-Missing"));
+                case 4 -> send(sender, prefix + getMsg("Help"));
+                case 5 -> send(sender, prefix + getMsg("Max-Limit"));
+                case 6 -> send(sender, prefix + getMsg("No-Player"));
+                case 7 -> send(sender, prefix + getMsg("New-Name")
+                        .replace("{newName}", Bukkit.getPlayer(sender.getName()).getDisplayName())
+                        .replace("{player}", sender.getName()));
             }
         } catch (Exception e) {Senders.Msg(1, sender, "Senders.Messages -> Unknown \"int lvl\"! Contact with @nionim (In Discord)");}
     }

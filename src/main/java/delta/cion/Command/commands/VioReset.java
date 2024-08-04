@@ -12,6 +12,9 @@ public class VioReset implements CmdExecutor.CmdUtil {
     public String CmdName() {return "reset";}
 
     @Override
+    public String CmdDescription() {return "Reset our nickname";}
+
+    @Override
     public void CmdUse(CommandSender sender, String[] args) {
         if (sender instanceof Player) {
             Player player = Bukkit.getPlayer(sender.getName());

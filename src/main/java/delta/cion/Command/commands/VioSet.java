@@ -14,12 +14,16 @@ public class VioSet implements CmdExecutor.CmdUtil {
     public String CmdName() {return "set";}
 
     @Override
+    public String CmdDescription() {return "Set custom nickname for other player";}
+
+    @Override
     public void CmdUse(CommandSender sender, String[] args) {
         Player player = Bukkit.getPlayer(args[0]);
         String nick = String.join(" ", Arrays.copyOfRange(args, 1, args.length)).replace('&', '§');
-        if (player != null) {
-            player.setDisplayName(ConfigNames.hexTranslate(nick));
-            ConfigNames.addPlayer(player.getName(), ConfigNames.hexTranslate(nick));
-        } else {Senders.Messages(6, sender);}
+        if (player == null) {
+            Senders.Messages(6, sender); return;
+        }
+        player.setDisplayName(ConfigNames.hexTranslate(nick));
+        ConfigNames.addPlayer(player.getName(), ConfigNames.hexTranslate(nick));
     }
 }

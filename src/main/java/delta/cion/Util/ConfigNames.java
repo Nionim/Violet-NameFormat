@@ -11,13 +11,10 @@ public class ConfigNames {
     private static FileConfiguration conf;
     private static ConfigurationSection section;
 
-    // Players:
-    //  playername: "&4&l{name}"
-
     public static void addPlayer(String player, String format) {
         conf = Violet_NameFormat.getInstance().getConfig();
         section = conf.getConfigurationSection("Players");
-        if (section == null) {conf.createSection("Players");}
+        if (section == null) conf.createSection("Players");
 
         section.set(player, format);
         Violet_NameFormat.getInstance().saveConfig();
@@ -26,7 +23,7 @@ public class ConfigNames {
     public static void removePlayer(Player player) {
         conf = Violet_NameFormat.getInstance().getConfig();
         section = conf.getConfigurationSection("Players");
-        if (section == null) {conf.createSection("Players");}
+        if (section == null) conf.createSection("Players");
 
         if (section != null || section.contains(player.getName())) {
             section.set(player.getName(), null);
@@ -36,23 +33,17 @@ public class ConfigNames {
     }
 
     public static void joinPlayer(Player player) {
-        conf = Violet_NameFormat.getInstance().getConfig();
-        section = conf.getConfigurationSection("Players");
 
-        if (section != null || section.contains(player.getName())) {
-
-            player.setDisplayName(section.getString(player.getName()));
-        }
     }
 
     public static void checkPlayer(Player player, String color) {
-        String playerz = player.getName();
+        String playerName = player.getName();
         conf = Violet_NameFormat.getInstance().getConfig();
         section = conf.getConfigurationSection("Players");
-        if (section == null) {conf.createSection("Players");}
+        if (section == null) conf.createSection("Players");
 
-        player.setDisplayName(hexTranslate(color)+playerz);
-        addPlayer(playerz, hexTranslate(color)+playerz);
+        player.setDisplayName(hexTranslate(color)+playerName);
+        addPlayer(playerName, hexTranslate(color)+playerName);
     }
 
     public static String hexTranslate(String text) {

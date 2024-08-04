@@ -3,6 +3,8 @@ package delta.cion.Command;
 import delta.cion.Anvil.AnvilColorize;
 import delta.cion.Command.commands.*;
 import delta.cion.Util.LoginEvent;
+import delta.cion.Util.MsgBuffer;
+import delta.cion.Util.Senders;
 import delta.cion.Violet_NameFormat;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -14,14 +16,11 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
-
 public class CmdExecutor implements CommandExecutor, TabCompleter {
 
-    private final ArrayList<CmdUtil> c = new ArrayList<>();
+    public final ArrayList<CmdUtil> c = new ArrayList<>();
 
     public CmdExecutor() {
-        c.add(new VioHelp());
         c.add(new VioReset());
         c.add(new VioReload());
         c.add(new VioColor());
@@ -31,8 +30,17 @@ public class CmdExecutor implements CommandExecutor, TabCompleter {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String string, String[] args) {
+        if (args[0].equals("help")) {
+            MsgBuffer msgBuffer = new MsgBuffer();
+            msgBuffer.bufClear();
+            for (CmdUtil cmdUtil : c) {
+                String format = cmdUtil.CmdName()+" - "+cmdUtil.CmdDescription();
+                msgBuffer.bufAppend(format); return true;
+            }
+            Senders.Msg(1, sender, msgBuffer.getMessage());
+        }
         for (CmdUtil cmdUtil : c) {
-            if (args.length > 0 && args[0].equalsIgnoreCase(cmdUtil.CmdName()) && (sender.hasPermission("vio."+cmdUtil.CmdName()))) {
+            if (args.length > 0 && args[0].equals(cmdUtil.CmdName()) && (sender.hasPermission("vio."+cmdUtil.CmdName()))) {
                 String[] argscmd = Arrays.copyOfRange(args, 1, args.length);
                 cmdUtil.CmdUse(sender, argscmd);
                 return true;
@@ -48,7 +56,8 @@ public class CmdExecutor implements CommandExecutor, TabCompleter {
             if (sender.hasPermission("vio."+cmdUtil.CmdName()) || sender.hasPermission("vio.name.format.*")) {
                 CMDList.add(cmdUtil.CmdName());
             }
-            if ((sender.hasPermission("vio.color") || sender.hasPermission("vio.name.format.*")) && args.length > 0) {
+            if ((sender.hasPermission("vio.color") || sender.hasPermission("vio.name.format.*")) && args.length >= 2) {
+                CMDList.clear();
                 CMDList.add("<args>");
             }
         }
@@ -57,13 +66,7 @@ public class CmdExecutor implements CommandExecutor, TabCompleter {
 
     public interface CmdUtil {
         String CmdName();
+        String CmdDescription();
         void CmdUse(CommandSender sender, String[] args);
-    }
-    public static void Enablez() {
-        Violet_NameFormat.getInstance().saveDefaultConfig();
-        Objects.requireNonNull(Violet_NameFormat.getInstance().getCommand("vionf")).setExecutor(new CmdExecutor());
-        Objects.requireNonNull(Violet_NameFormat.getInstance().getCommand("vionf")).setTabCompleter(new CmdExecutor());
-        Bukkit.getPluginManager().registerEvents(new AnvilColorize(), Violet_NameFormat.getInstance());
-        Bukkit.getPluginManager().registerEvents(new LoginEvent(), Violet_NameFormat.getInstance());
     }
 }
