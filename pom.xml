@@ -6,7 +6,7 @@
 
     <groupId>delta.cion</groupId>
     <artifactId>Violet-NameFormat</artifactId>
-    <version>2.5.0-DEV</version>
+    <version>3.0.0</version>
     <packaging>jar</packaging>
 
     <name>Violet-NameFormat</name>

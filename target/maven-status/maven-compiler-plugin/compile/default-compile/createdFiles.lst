@@ -4,6 +4,7 @@ delta\cion\Command\commands\VioReset.class
 delta\cion\Anvil\AnvilColorize.class
 delta\cion\Violet_NameFormat.class
 delta\cion\Util\Senders.class
+delta\cion\Command\commands\VioHelp.class
 delta\cion\Command\CmdExecutor$CmdUtil.class
 delta\cion\Command\CmdExecutor.class
 delta\cion\Command\commands\VioColor.class

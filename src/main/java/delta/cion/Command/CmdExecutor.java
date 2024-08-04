@@ -26,23 +26,15 @@ public class CmdExecutor implements CommandExecutor, TabCompleter {
         c.add(new VioColor());
         c.add(new VioNick());
         c.add(new VioSet());
+        // c.add(new VioHelp()); Fix in progress
     }
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String string, String[] args) {
-        if (args[0].equals("help")) {
-            MsgBuffer msgBuffer = new MsgBuffer();
-            msgBuffer.bufClear();
-            for (CmdUtil cmdUtil : c) {
-                String format = cmdUtil.CmdName()+" - "+cmdUtil.CmdDescription();
-                msgBuffer.bufAppend(format); return true;
-            }
-            Senders.Msg(1, sender, msgBuffer.getMessage());
-        }
         for (CmdUtil cmdUtil : c) {
             if (args.length > 0 && args[0].equals(cmdUtil.CmdName()) && (sender.hasPermission("vio."+cmdUtil.CmdName()))) {
                 String[] argscmd = Arrays.copyOfRange(args, 1, args.length);
-                cmdUtil.CmdUse(sender, argscmd);
+                cmdUtil.CmdUse(sender, argscmd, c);
                 return true;
             }
         }
@@ -67,6 +59,6 @@ public class CmdExecutor implements CommandExecutor, TabCompleter {
     public interface CmdUtil {
         String CmdName();
         String CmdDescription();
-        void CmdUse(CommandSender sender, String[] args);
+        void CmdUse(CommandSender sender, String[] args, ArrayList<CmdUtil> cmdUtil);
     }
 }

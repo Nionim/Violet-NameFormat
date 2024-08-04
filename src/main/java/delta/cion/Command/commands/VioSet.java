@@ -7,6 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class VioSet implements CmdExecutor.CmdUtil {
@@ -17,7 +18,7 @@ public class VioSet implements CmdExecutor.CmdUtil {
     public String CmdDescription() {return "Set custom nickname for other player";}
 
     @Override
-    public void CmdUse(CommandSender sender, String[] args) {
+    public void CmdUse(CommandSender sender, String[] args, ArrayList<CmdExecutor.CmdUtil> commands) {
         Player player = Bukkit.getPlayer(args[0]);
         String nick = String.join(" ", Arrays.copyOfRange(args, 1, args.length)).replace('&', '§');
         if (player == null) {

@@ -7,6 +7,8 @@ import delta.cion.Violet_NameFormat;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
+
 public class VioNick implements CmdExecutor.CmdUtil {
     @Override
     public String CmdName() {return "nick";}
@@ -15,7 +17,7 @@ public class VioNick implements CmdExecutor.CmdUtil {
     public String CmdDescription() {return "Set custom nick";}
 
     @Override
-    public void CmdUse(CommandSender sender, String[] args) {
+    public void CmdUse(CommandSender sender, String[] args, ArrayList<CmdExecutor.CmdUtil> commands) {
         if (!(sender instanceof Player)) {
             Senders.Messages(2, sender); return;
         }

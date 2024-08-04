@@ -6,6 +6,8 @@ import delta.cion.Util.Senders;
 import delta.cion.Violet_NameFormat;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
@@ -17,7 +19,7 @@ public class VioColor implements CmdExecutor.CmdUtil {
     public String CmdDescription() {return "Set color in your nickname";}
 
     @Override
-    public void CmdUse(CommandSender sender, String[] args) {
+    public void CmdUse(CommandSender sender, String[] args, ArrayList<CmdExecutor.CmdUtil> commands) {
 
         String nick = String.join(" ", Arrays.copyOfRange(args, 0, args.length)).replace('&', '§');
         if (!sender.hasPermission("vio.magic-font")) nick = nick.replace("§k", "");

@@ -13,7 +13,7 @@ public class Enables {
 
     public static void enable() {
         if (plugin.getDescription().getVersion().contains("-DEV")) {
-            Senders.Log(3, "ЕСЛИ К ВАМ ПОПАЛ DEV БИЛД - СООБЩИТЕ ОБ ЭТОМ РАЗРАБОТЧИКУ!!!\nЭТО НЕ НОРМАЛЬНО!!!");
+            Senders.Log(3, "WARNING! THIS A TEST BUILD!");
         }
 
         Objects.requireNonNull(plugin.getCommand("vionf")).setExecutor(new CmdExecutor());
