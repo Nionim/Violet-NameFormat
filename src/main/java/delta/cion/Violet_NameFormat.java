@@ -1,22 +1,22 @@
 package delta.cion;
 
-import delta.cion.Anvil.AnvilColorize;
 import delta.cion.Command.CmdExecutor;
-import lombok.Getter;
-import org.bukkit.Bukkit;
+import delta.cion.Util.Senders;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.Objects;
 
 public final class Violet_NameFormat extends JavaPlugin {
 
-    @Getter
-    private static Violet_NameFormat instance;
+    public static Violet_NameFormat getInstance() {
+        return getPlugin(Violet_NameFormat.class);
+    }
 
     @Override
     public void onEnable() {
-        instance = this;
         CmdExecutor.Enablez();
+        if (getDescription().getVersion().contains("-DEV")) {
+            Senders.Log(3, "ЕСЛИ К ВАМ ПОПАЛ DEV БИЛД - СООБЩИТЕ ОБ ЭТОМ РАЗРАБОТЧИКУ!!!\nЭТО НЕ НОРМАЛЬНО!!!");
+        }
     }
 
     @Override

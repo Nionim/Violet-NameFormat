@@ -16,15 +16,14 @@ public class VioColor implements CmdExecutor.CmdUtil {
     public void CmdUse(CommandSender sender, String[] args) {
 
         String nick = String.join(" ", Arrays.copyOfRange(args, 1, args.length)).replace('&', '§');
-        if (!sender.hasPermission("vio.magic-font")) {
-            nick = nick.replace("§k", "");
-        }
+        if (!sender.hasPermission("vio.magic-font")) nick = nick.replace("§k", "");
+
         String nickRaw = nick.replaceAll("#[a-fA-F0-9]{6}", "").replaceAll("&.", "");
 
         if (sender instanceof Player) {
             Player player = (Player) sender;
             if (nickRaw.length() <= Violet_NameFormat.getInstance().getConfig().getInt("Nick-Max-Length") || sender.hasPermission("vio.length.bypass")) {
-                ConfigNames.checkPlayer(player, nick);
+                ConfigNames.checkPlayer(player, nick+sender.getName());
             } else {
                 Senders.Messages(5, sender);
             }
