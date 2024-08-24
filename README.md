@@ -2,10 +2,8 @@
  Simple minecraft plugin for name formating
 
 # Perms:
-> - vio.color.user - Set color name for other user
->  - children: vio.color: true
-> - vio.nick.user - Set nickname for other user
->  - children: vio.nick: true
+> - vio.color.user - Set color name for other user -- children: vio.color: true
+> - vio.nick.user - Set nickname for other user -- children: vio.nick: true
 > - vio.anvil - Color names for items in anvil
 > - vio.color - Set color name
 > - vio.nick - Set nickname
