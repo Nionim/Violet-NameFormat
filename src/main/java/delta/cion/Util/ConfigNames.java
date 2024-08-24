@@ -54,7 +54,7 @@ public class ConfigNames {
         while (matcher.find()) {
             String hexColor = matcher.group();
             String replacement = hexColor
-                    .substring(1) // Убираем #
+                    .substring(1) 
                     .replaceAll(".", "§$0")
                     .replaceFirst("^", "§x");
             matcher.appendReplacement(buffer, replacement);
