@@ -30,6 +30,5 @@ public class AnvilColorize implements Listener {
                 event.setResult(result);
             }
         }
-
     }
 }

@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 
-public class VioReset implements CmdExecutor.CmdUtil {
+public class vReset implements CmdExecutor.CmdUtil {
     @Override
     public String CmdName() {return "reset";}
 

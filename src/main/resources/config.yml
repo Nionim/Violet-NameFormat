@@ -1,18 +1,21 @@
 Nick-Max-Length: 16
 
 Messages:
-  Unknown-Command: "Неизвестная команда"
-  Config-Reloaded: "Конфиг перезагружен"
-  Only-Player: "Только для игроков"
-  Args-Missing: "Нет нужного аргумента"
-  Help: "Помощи нет."
-  Max-Limit: "&4Длинна ника (Не учитывая форматирование) превышает максимальное значение!"
-  No-Player: "&4Игрок не обнаружен!"
-  # Для New-Name можно использовать {newName}, {oldName}, (И {player} Тот, кто изменяет ник)
-  New-Name: "Вы установили ник: {newName}"
-  Set-Nick: "Вы установили ник {newName} для игрока {player}"
-  Set-Nick-Player-Msg: "Вам установили ник {newName}"
+  Unknown-Command: "Unknown command!"
+  Config-Reloaded: "Config reloaded!"
+  Player-Only: "Only players can use this command!"
+  Args-Missing: "Args missing"
+  Help: "Help? NO"
+  No-MainHand-Item: "No items on main hand"
+  Max-Limit: "&4Nickname length (Without formating) exceeds max symbols value!"
+  No-Player: "&4Unknown player!"
+  cmData-Error: "&4Custom Model Data example - 7654321/123/1/2"
 
-# Формат в кавычках не соответствует тому, что будет в будущем!
+  # Для New-Name можно использовать {newName}, {oldName}, {player} (player Тот, кто изменяет ник)
+  # For New-Name you can use {newName}, {oldName}, {player} (player The one who changes the nickname)
+  New-Name: "You change nickname: {newName}"
+  Set-Nick: "You change nickname {newName} for {player}"
+  Set-Nick-Player-Msg: "Your nickname changed to {newName}"
+
 Players:
   Carde2: "&5&l"

@@ -51,10 +51,12 @@ public class Senders {
                 case 3 -> send(sender, prefix + getMsg("Args-Missing"));
                 case 4 -> send(sender, prefix + getMsg("Help"));
                 case 5 -> send(sender, prefix + getMsg("Max-Limit"));
-                case 6 -> send(sender, prefix + getMsg("No-Player"));
+                case 6 -> send(sender, prefix + getMsg("Player-Only"));
                 case 7 -> send(sender, prefix + getMsg("New-Name")
                         .replace("{newName}", Bukkit.getPlayer(sender.getName()).getDisplayName())
                         .replace("{player}", sender.getName()));
+                case 8 -> send(sender, prefix + getMsg("No-MainHand-Item"));
+                case 9 -> send(sender, prefix + getMsg("cmData-Error"));
             }
         } catch (Exception e) {Senders.Msg(1, sender, "Senders.Messages -> Unknown \"int lvl\"! Contact with @nionim (In Discord)");}
     }

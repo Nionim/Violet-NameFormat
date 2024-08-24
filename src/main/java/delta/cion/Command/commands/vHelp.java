@@ -7,7 +7,7 @@ import org.bukkit.command.CommandSender;
 
 import java.util.ArrayList;
 
-public class VioHelp implements CmdExecutor.CmdUtil {
+public class vHelp implements CmdExecutor.CmdUtil {
     @Override
     public String CmdName() {return "help";}
 

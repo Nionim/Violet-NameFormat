@@ -7,7 +7,7 @@ import org.bukkit.command.CommandSender;
 
 import java.util.ArrayList;
 
-public class VioReload implements CmdExecutor.CmdUtil {
+public class vReload implements CmdExecutor.CmdUtil {
     @Override
     public String CmdName() {return "reload";}
 

@@ -1,5 +1,5 @@
 name: Violet-NameFormat
-version: '3.0.0'
+version: '3.5.0'
 main: delta.cion.Violet_NameFormat
 api-version: '1.20'
 authors:
@@ -24,6 +24,8 @@ permissions:
     description: Set color name
   vio.nick:
     description: Set nickname
+  vio.cmdata:
+    description: Set Custom Model Data
   vio.help:
     description: Get help
   vio.reset:
@@ -47,3 +49,4 @@ permissions:
       vio.help: true
       vio.reset: true
       vio.reload: true
+      vio.cmdata: true

@@ -1,12 +1,6 @@
 package delta.cion.Command;
 
-import delta.cion.Anvil.AnvilColorize;
 import delta.cion.Command.commands.*;
-import delta.cion.Util.LoginEvent;
-import delta.cion.Util.MsgBuffer;
-import delta.cion.Util.Senders;
-import delta.cion.Violet_NameFormat;
-import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -21,11 +15,12 @@ public class CmdExecutor implements CommandExecutor, TabCompleter {
     public final ArrayList<CmdUtil> c = new ArrayList<>();
 
     public CmdExecutor() {
-        c.add(new VioReset());
-        c.add(new VioReload());
-        c.add(new VioColor());
-        c.add(new VioNick());
-        c.add(new VioSet());
+        c.add(new vReset());
+        c.add(new vReload());
+        c.add(new vColor());
+        c.add(new vNick());
+        c.add(new vSet());
+        c.add(new vCdata());
         // c.add(new VioHelp()); Fix in progress
     }
 

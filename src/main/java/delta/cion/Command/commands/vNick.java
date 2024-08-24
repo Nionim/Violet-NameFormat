@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 
-public class VioNick implements CmdExecutor.CmdUtil {
+public class vNick implements CmdExecutor.CmdUtil {
     @Override
     public String CmdName() {return "nick";}
 

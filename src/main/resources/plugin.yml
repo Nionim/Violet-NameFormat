@@ -24,6 +24,8 @@ permissions:
     description: Set color name
   vio.nick:
     description: Set nickname
+  vio.cmdata:
+    description: Set Custom Model Data
   vio.help:
     description: Get help
   vio.reset:
@@ -47,3 +49,4 @@ permissions:
       vio.help: true
       vio.reset: true
       vio.reload: true
+      vio.cmdata: true

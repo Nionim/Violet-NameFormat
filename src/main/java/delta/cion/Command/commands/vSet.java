@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class VioSet implements CmdExecutor.CmdUtil {
+public class vSet implements CmdExecutor.CmdUtil {
     @Override
     public String CmdName() {return "set";}
 

@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.regex.Pattern;
 
-public class VioColor implements CmdExecutor.CmdUtil {
+public class vColor implements CmdExecutor.CmdUtil {
     @Override
     public String CmdName() {return "color";}
 
