@@ -1,5 +1,6 @@
 # Violet-NameFormat
- Simple minecraft plugin for name formating
+ Simple minecraft plugin for name formating<br>
+ [DEVELOPER DISCORD SERVER](https://discord.gg/MEBkvJbe4P)
 
 # Perms:
 > - vio.color.user - Set color name for other user -- children: vio.color: true
@@ -15,5 +16,5 @@
 > - vio.name.format.* - All perms
 
 # О БАГАХ / ABOUT BUGS
-<p>Если вы нашли ошибку/баг/недоработку - Сообщайте об этом в дискорд (https://discord.gg/MEBkvJbe4P) в тикетах!</p>
-<p>If you found a bug - Report it to discord (https://discord.gg/MEBkvJbe4P) in tickets!</p>
+<p>Если вы нашли ошибку/баг/недоработку - Сообщайте об этом в дискорд в тикетах!</p>
+<p>If you found a bug - Report it to discord in tickets!</p>
