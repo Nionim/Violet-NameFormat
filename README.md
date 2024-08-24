@@ -15,5 +15,5 @@
 > - vio.name.format.* - All perms
 
 # О БАГАХ / ABOUT BUGS
-<p>Если вы нашли ошибку/баг/недоработку - Сообщайте об этом в [дискорд](https://discord.gg/MEBkvJbe4P) в тикетах!</p>
-<p>If you found a bug - Report it to [discord](https://discord.gg/MEBkvJbe4P) in tickets!</p>
+<p>Если вы нашли ошибку/баг/недоработку - Сообщайте об этом в дискорд (https://discord.gg/MEBkvJbe4P) в тикетах!</p>
+<p>If you found a bug - Report it to discord (https://discord.gg/MEBkvJbe4P) in tickets!</p>
